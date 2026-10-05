@@ -148,9 +148,9 @@ No new training or private-data evaluation is represented as completed by this
 packaging task. Load only trusted PyTorch checkpoints and keep all generated
 participant-level outputs outside this public source repository.
 
-In v1, only `prepare.py` was edited during teacher packaging: private source
+During initial teacher packaging, only `prepare.py` was edited: private source
 locations and the fixed manifest-hash literal became explicit mandatory CLI
-arguments. In v2, `model.py` additionally exposes the canonical `CardiacAE` class
+arguments. The naming update additionally exposes the canonical `CardiacAE` class in `model.py`
 and registry name, retaining the old names as aliases. All preparation mathematics,
 topology construction, model state-dict keys, losses, training reductions and
 checkpoint semantics remain unchanged.

@@ -6,7 +6,7 @@ continuation, a RetiDINO replacement, or the earlier frozen-backbone experiment.
 
 **CardiacAE -> RetiCardiac -> disease heads**
 
-Canonical code names in this v2 package:
+Canonical code names:
 
 | Component | Public class | Source |
 | --- | --- | --- |
@@ -86,7 +86,11 @@ as **Ours are not a unique model definition** across all cohort/horizon panels.
 Independent RETFound/EyeCLIP comparators are not implemented by renaming this
 student's retinal branch. See [verification](docs/verification.md).
 
-This is the source-only GitHub edition of the audited v2 package. No new
+This repository maintains one published code line on `main`; Git history records
+auditable changes, not separate trained model releases. Historical experiment
+identifiers in the provenance are retained unchanged.
+
+This is the source-only GitHub edition of the audited Eye2Cardiac package. No new
 training was performed for this publication. An open-source licence has not
 been assigned; any licence grant or redistribution of external components still
 needs the authors' review. See [third-party notice](THIRD_PARTY.md). Research use

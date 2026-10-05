@@ -1,5 +1,5 @@
 {
-  "release": "Eye2Cardiac original 35-epoch source-only release v2",
+  "release": "Eye2Cardiac original 35-epoch source-only release",
   "date": "2026-10-06",
   "source_experiment": "Eye2CardiacMamba_RetiZero_SyncOnly_Last4FT_NoAug_20260927_v1",
   "execution": "attempt001",
@@ -514,7 +514,7 @@
     "Keep runtime input locations when restoring a relocated checkpoint.",
     "Report Mesh11 by the locked names, excluding ED/ES sphericity only.",
     "Add private configuration, input validation, source fingerprints, seed locks and synthetic checks.",
-    "V2 canonical naming: CardiacAE and RetiCardiac; historical result identifiers preserved."
+    "Canonical naming: CardiacAE and RetiCardiac; historical result identifiers preserved."
   ],
   "no_training_during_packaging": true,
   "no_weights_or_data_distributed": true,

@@ -5,24 +5,24 @@ epoch 4, seed 20260919. The checks below preceded GitHub publication; no
 retraining, threshold tuning or cohort editing was performed. Source identities
 are recorded in `provenance.json`.
 
-## V2 naming update
+## Canonical model names
 
 The canonical classes are now **CardiacAE** (teacher) and **RetiCardiac**
 (student). Factory calls and name metadata use these names; the historical
 teacher registry ID and class imports remain direct aliases. No module
 attributes, registered buffers, parameter names, numerical method bodies,
 initialization order, losses, splits, seed or scientific hyperparameters changed.
-Independent static comparison with v1 confirms that all model method bodies
+Independent static comparison with the pre-rename source confirms that all model method bodies
 are identical; historical downstream arm identifiers remain unchanged.
 
-V2 local checks: **20 tests, 15 passed, 5 explicitly skipped** because the local
+Post-rename local checks: **20 tests, 15 passed, 5 explicitly skipped** because the local
 runtime has no PyTorch. The five new tests verify canonical names, legacy alias
 identity, registry/factory dispatch and configuration metadata using compiled
 declarations and stand-in superclasses. They do not load private checkpoint
-weights or substitute for a full-framework inference check. No v2 numerical
+weights or substitute for a full-framework inference check. No post-rename numerical
 parity or retraining result is claimed here.
 
-## Completed V1 checks inherited by this naming-only release
+## Completed checks before the naming update
 
 | Check | Scope | Outcome |
 | --- | --- | --- |

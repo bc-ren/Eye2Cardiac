@@ -6,7 +6,7 @@ trajectory selected epoch 4, seed 20260919. No new model has been trained while
 preparing this release.
 
 The teacher's canonical code name is **CardiacAE** and the student's is
-**RetiCardiac**. The v2 naming update does not change the historical run IDs,
+**RetiCardiac**. The naming update does not change the historical run IDs,
 trained state dictionaries, data splits or numerical protocol.
 
 ## Inputs and fitted artifacts
