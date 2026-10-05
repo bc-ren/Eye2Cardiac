@@ -1,0 +1,526 @@
+{
+  "release": "Eye2Cardiac original 35-epoch source-only release v2",
+  "date": "2026-10-06",
+  "source_experiment": "Eye2CardiacMamba_RetiZero_SyncOnly_Last4FT_NoAug_20260927_v1",
+  "execution": "attempt001",
+  "trajectory_epochs": 35,
+  "selected_epoch": 4,
+  "seed": 20260919,
+  "student_checkpoint_sha256": "98020aeaeca21b439cb55473eed1f5bca236f462a79776c2a334e28649ea7589",
+  "teacher_checkpoint_sha256": "3c5d623960cf5a6648e736ae2b6d5d4ec7881d782936866451d532eb61332762",
+  "retizero_initial_checkpoint_sha256": "7d06d29441c981898bbb56abdaae1eb97e205448f0a9bc2a68e2aa9431601ede",
+  "teacher_topology_sha256": "1efb1c25320b9c75d24ae90456085271818abf4ee22a7d187f95bdca9fa0112b",
+  "source_git_commit": null,
+  "source_git_state": "Historical experiment source snapshots, not a verified clean Git checkout",
+  "external_retizero_checkout_commit": "d72aadc692fbe33b182c79711bccb397edffb419",
+  "external_checkout_commit_caveat": "Commit identity is not a claim that the external working tree was clean; preflight hashes actual source files.",
+  "source_files": [
+    {
+      "file": "src/downstream/clinical_dataset.py",
+      "release_sha256": "6c06b8026f69a354b2598c14827401a3284d1b05bed64e4c0e55a850ec07f00f",
+      "source": "student/downstream/source_reference/frozen/features.py",
+      "source_sha256": "de765b6d30d7087b8ab27823a5773dda4f01b4cfc520259bb312c375ddb6c9e0",
+      "change": "Extract original Clinical class; historical feature-export driver omitted.",
+      "byte_identical": false,
+      "v1_release_sha256": "6c06b8026f69a354b2598c14827401a3284d1b05bed64e4c0e55a850ec07f00f"
+    },
+    {
+      "file": "src/downstream/clinical_formula.py",
+      "release_sha256": "1921f978d9dc65db1091e087ae53ba493f51fe038470dae40dca7af1796c6670",
+      "source": "student/downstream/source_reference/clinical/clinical_score_formulas_snapshot.py",
+      "source_sha256": "8f3623946b20d4febba8190fc6a64371c4b1af5e2e252c0c81dc9a1d15476a48",
+      "change": "Extract only original framingham_chd function; unrelated disease formulas and historical driver omitted.",
+      "byte_identical": false,
+      "v1_release_sha256": "1921f978d9dc65db1091e087ae53ba493f51fe038470dae40dca7af1796c6670"
+    },
+    {
+      "file": "src/downstream/clinical_raw.py",
+      "release_sha256": "29fb9fd2872ec95f75873ce8f5066dd2f6a0bd1de8406d10ba422a943c595dff",
+      "source": "student/downstream/clinical_raw.py",
+      "source_sha256": "523c2a6301977cf1fc842f3a7c43ab46923842a92cf2813545712472cb4063d0",
+      "change": "Use local extracted clinical_reader/clinical_formula file paths; no numerical change.",
+      "byte_identical": false,
+      "v1_release_sha256": "29fb9fd2872ec95f75873ce8f5066dd2f6a0bd1de8406d10ba422a943c595dff"
+    },
+    {
+      "file": "src/downstream/clinical_reader.py",
+      "release_sha256": "1221adf86a78a1e24d73e3f320a482314b58395c023e0bc54a678831c7a6fc4d",
+      "source": "student/downstream/source_reference/clinical/clinical_ukb_reader_snapshot.py",
+      "source_sha256": "a2e9f5da30bd01f57846679ed8461a7cc37e016ac46bb1755124c2c58f892cb7",
+      "change": "Extract original input helpers and constants; unrelated AF evaluation/driver omitted.",
+      "byte_identical": false,
+      "v1_release_sha256": "1221adf86a78a1e24d73e3f320a482314b58395c023e0bc54a678831c7a6fc4d"
+    },
+    {
+      "file": "src/downstream/evaluate.py",
+      "release_sha256": "f2c0b18b6fe53f25bb048a4c979502ac76b28cdb2910d03570d084ea8aceda76",
+      "source": "student/downstream/evaluate.py",
+      "source_sha256": "f2c0b18b6fe53f25bb048a4c979502ac76b28cdb2910d03570d084ea8aceda76",
+      "change": "Unchanged.",
+      "byte_identical": true,
+      "v1_release_sha256": "f2c0b18b6fe53f25bb048a4c979502ac76b28cdb2910d03570d084ea8aceda76"
+    },
+    {
+      "file": "src/downstream/export_features.py",
+      "release_sha256": "ba55304fcf31efa1d1e53c25bce895d518fb44ed10cbb97e2b95967b0230fec5",
+      "source": "student/downstream/export_features.py",
+      "source_sha256": "e856c9fbed680b9da6dbb776bec2540fd58e0829f849e69eadccc734c8933cc4",
+      "change": "Remove unused os/equal and unreachable if False cache-reuse block; use local Clinical dataset; named Mesh11 extraction replaces original 13-column intermediate plus KEEP11 (same selected values); relocate checkpoint configuration paths using shared.relocated_config while retaining saved numerical settings.",
+      "byte_identical": false,
+      "v1_release_sha256": "ba55304fcf31efa1d1e53c25bce895d518fb44ed10cbb97e2b95967b0230fec5"
+    },
+    {
+      "file": "src/downstream/heads.py",
+      "release_sha256": "433cb6be13109c550fcffe2ea40abc2260d85021f2b22d0d3fec64ce2356f7be",
+      "source": "student/downstream/heads.py",
+      "source_sha256": "433cb6be13109c550fcffe2ea40abc2260d85021f2b22d0d3fec64ce2356f7be",
+      "change": "Unchanged.",
+      "byte_identical": true,
+      "v1_release_sha256": "433cb6be13109c550fcffe2ea40abc2260d85021f2b22d0d3fec64ce2356f7be"
+    },
+    {
+      "file": "src/downstream/metrics.py",
+      "release_sha256": "00f9c525bbd5b50a7d401c9e625e5bbaf579d27addcb0462a982399388c14e3a",
+      "source": "student/downstream/metrics.py",
+      "source_sha256": "00f9c525bbd5b50a7d401c9e625e5bbaf579d27addcb0462a982399388c14e3a",
+      "change": "Unchanged.",
+      "byte_identical": true,
+      "v1_release_sha256": "00f9c525bbd5b50a7d401c9e625e5bbaf579d27addcb0462a982399388c14e3a"
+    },
+    {
+      "file": "src/downstream/metrics_extended.py",
+      "release_sha256": "5d7c55f438c2dac8a94e5712357b31713d19a2f90614dda883e490c9248f4e72",
+      "source": "student/external/report_metrics_attempt002.py",
+      "source_sha256": "f70fe1a11d498dea7cbbd1d4e80bfb1cf01f2d6c5232a373adb074c5b6c6089e",
+      "change": "Retain additional binary formulas from external/report_metrics_attempt002.py without cohort-specific orchestration.",
+      "byte_identical": false,
+      "v1_release_sha256": "5d7c55f438c2dac8a94e5712357b31713d19a2f90614dda883e490c9248f4e72"
+    },
+    {
+      "file": "src/downstream/mlp.py",
+      "release_sha256": "69a101caa274063a6aa8a551f7263356bacab5b0c32de2aa8edaab448195435a",
+      "source": "student/downstream/mlp.py",
+      "source_sha256": "b7b3caa45f4b20363b4165b90cc94b0c5da581c96f06fb8823fb90464ff9b3ea",
+      "change": "Unchanged numerical definitions; remove unused copy import; local clinical_formula import path.",
+      "byte_identical": false,
+      "v1_release_sha256": "69a101caa274063a6aa8a551f7263356bacab5b0c32de2aa8edaab448195435a"
+    },
+    {
+      "file": "src/downstream/runlib.py",
+      "release_sha256": "2e0d087476024393cf119e578335a33ec71009a02fb4ff214e2da452143157ed",
+      "source": "student/downstream/runlib.py",
+      "source_sha256": "e282c82bd52f79516fb3000d24e5d7a4e9597c812a7245000af342ebb922891b",
+      "change": "Remove unused BASE historical-experiment path binding. Config-supplied private paths retained.",
+      "byte_identical": false,
+      "v1_release_sha256": "2e0d087476024393cf119e578335a33ec71009a02fb4ff214e2da452143157ed"
+    },
+    {
+      "file": "src/downstream/validate_inputs.py",
+      "release_sha256": "7d6f53c2d9f9fde18bbf81b852aeaf1bdf43dbb813e21b5fbf93efbe91c684d4",
+      "source": "student/downstream/prepare.py",
+      "source_sha256": "54e33ae61ef520b30e28df5742d99eb1f78da5fe3df7e16ea1d377048f0d75ac",
+      "change": "Retain original prepare.py data-overlap, CFP-age, fold, image and metric checks; inputs must be staged explicitly. Omit copying previous run, server inspection, and invalid three-seed assertion; additionally require unique student test IDs, disjoint test views and exact fold IDs 0..4.",
+      "byte_identical": false,
+      "v1_release_sha256": "7d6f53c2d9f9fde18bbf81b852aeaf1bdf43dbb813e21b5fbf93efbe91c684d4"
+    },
+    {
+      "file": "src/student/adapters.py",
+      "release_sha256": "04c9bd735553fccf77bf52bc833fbd6264e35f6b16e80a8ffe32377f4df5eb64",
+      "source": "student/adapters.py",
+      "source_sha256": "04c9bd735553fccf77bf52bc833fbd6264e35f6b16e80a8ffe32377f4df5eb64",
+      "extracted_symbols": null,
+      "byte_identical": true,
+      "v1_release_sha256": "04c9bd735553fccf77bf52bc833fbd6264e35f6b16e80a8ffe32377f4df5eb64"
+    },
+    {
+      "file": "src/student/dataset.py",
+      "release_sha256": "fd90c0e967664ca40f49064069a4cb1d67fe458389fa582bd74e66865e0df2d1",
+      "source": "student/dataset.py",
+      "source_sha256": "fd90c0e967664ca40f49064069a4cb1d67fe458389fa582bd74e66865e0df2d1",
+      "extracted_symbols": null,
+      "byte_identical": true,
+      "v1_release_sha256": "fd90c0e967664ca40f49064069a4cb1d67fe458389fa582bd74e66865e0df2d1"
+    },
+    {
+      "file": "src/student/evaluate_reconstruction.py",
+      "release_sha256": "30f65d09fc79dfd4f4c56e2eb9ebfd0a0d964c1585a372e5c4d96b4794d5788e",
+      "source": "student/evaluate_reconstruction.py",
+      "source_sha256": "16cfee80c245c64e97e98035cf33143231a43749cdc8e91c8ba97bd6f760a8e1",
+      "extracted_symbols": null,
+      "byte_identical": false,
+      "v1_release_sha256": "30f65d09fc79dfd4f4c56e2eb9ebfd0a0d964c1585a372e5c4d96b4794d5788e"
+    },
+    {
+      "file": "src/student/fit_artifacts.py",
+      "release_sha256": "02a1b9b1a82ecfd97599164e82a4035bd1dc2cc31ad659f09d69fa35bb7f89be",
+      "source": "student/fit_artifacts.py",
+      "source_sha256": "02a1b9b1a82ecfd97599164e82a4035bd1dc2cc31ad659f09d69fa35bb7f89be",
+      "extracted_symbols": null,
+      "byte_identical": true,
+      "v1_release_sha256": "02a1b9b1a82ecfd97599164e82a4035bd1dc2cc31ad659f09d69fa35bb7f89be"
+    },
+    {
+      "file": "src/student/geometry_bridge.py",
+      "release_sha256": "f0167b42f5c8a3ae3a468395b6c607016ff3f65626384f6d8362384899ca32c4",
+      "source": "release_integration_helper",
+      "v1_release_sha256": "f0167b42f5c8a3ae3a468395b6c607016ff3f65626384f6d8362384899ca32c4"
+    },
+    {
+      "file": "src/student/joint_system.py",
+      "release_sha256": "e2ded88b7652d30697ddf29e8f0c34e1cc20d8d4d4053a624148375c5753794f",
+      "source": "student/joint_system.py",
+      "source_sha256": "e2ded88b7652d30697ddf29e8f0c34e1cc20d8d4d4053a624148375c5753794f",
+      "extracted_symbols": null,
+      "byte_identical": true,
+      "v1_release_sha256": "e2ded88b7652d30697ddf29e8f0c34e1cc20d8d4d4053a624148375c5753794f"
+    },
+    {
+      "file": "src/student/missing_prior.py",
+      "release_sha256": "6e15950f746f48af387b068d2182806014e9c3a9af646f0733eedb9e6248c0dd",
+      "source": "release_integration_helper",
+      "v1_release_sha256": "6e15950f746f48af387b068d2182806014e9c3a9af646f0733eedb9e6248c0dd"
+    },
+    {
+      "file": "src/student/objectives.py",
+      "release_sha256": "7a9b395962edfa0feac3c8f3ebdea0374b18f2d432a6c45142e52e18cbb469c7",
+      "source": "student/objectives.py",
+      "source_sha256": "7a9b395962edfa0feac3c8f3ebdea0374b18f2d432a6c45142e52e18cbb469c7",
+      "extracted_symbols": null,
+      "byte_identical": true,
+      "v1_release_sha256": "7a9b395962edfa0feac3c8f3ebdea0374b18f2d432a6c45142e52e18cbb469c7"
+    },
+    {
+      "file": "src/student/phenotype_geometry.py",
+      "release_sha256": "6f6326352b0499331a2fff50f59260f9a6394d7374f792fccf725bed19d55676",
+      "source": "build_phenotypes_v2.py",
+      "source_sha256": "2197f5ac4375f9054c7d56982d915a74a1ece68ac690548ce4d20e3a5e52ba14",
+      "extracted_symbols": [
+        "signed_volumes_ml",
+        "vertex_areas",
+        "make_polydata",
+        "closest_surface_distance",
+        "weighted_quantile",
+        "load_topology",
+        "derive_axis",
+        "maximum_short_axis_diameter",
+        "frame_geometry",
+        "worker_init",
+        "process_record"
+      ],
+      "byte_identical": false,
+      "v1_release_sha256": "6f6326352b0499331a2fff50f59260f9a6394d7374f792fccf725bed19d55676"
+    },
+    {
+      "file": "src/student/physical_chunks.py",
+      "release_sha256": "e77516f03304880b56170c4814e375260a7178795235b67f3c65b81420f62964",
+      "source": "student/physical_chunks.py",
+      "source_sha256": "e77516f03304880b56170c4814e375260a7178795235b67f3c65b81420f62964",
+      "extracted_symbols": null,
+      "byte_identical": true,
+      "v1_release_sha256": "e77516f03304880b56170c4814e375260a7178795235b67f3c65b81420f62964"
+    },
+    {
+      "file": "src/student/preflight.py",
+      "release_sha256": "21913a9c6ff1ebe1f47d9c30557ead3e97bb935a4c5f6290651eac2a15aa390d",
+      "source": "release_integration_helper",
+      "v1_release_sha256": "21913a9c6ff1ebe1f47d9c30557ead3e97bb935a4c5f6290651eac2a15aa390d"
+    },
+    {
+      "file": "src/student/raw_dataset.py",
+      "release_sha256": "ef4789e069c6c87cde4dab0b1c1e50bc749972e7b56127a763e3b5ddca48870a",
+      "source": "student/raw_dataset.py",
+      "source_sha256": "f9353a976a3b883abd89f0a8a8042efacac639a5f73264d68bfba6abcdb2c543",
+      "extracted_symbols": null,
+      "byte_identical": false,
+      "v1_release_sha256": "ef4789e069c6c87cde4dab0b1c1e50bc749972e7b56127a763e3b5ddca48870a"
+    },
+    {
+      "file": "src/student/reference/dataset.py",
+      "release_sha256": "833ef2f7dc443a026fc3fef1a07d9c4031b3e810aa64edfc6167c09cf2274e43",
+      "source": "student/reference/dataset.py",
+      "source_sha256": "286a887e3b400ddcd016e6ee4ffb98f9c288b7cf192634dc118164dc5ef47fb9",
+      "extracted_symbols": [
+        "CachedPaired"
+      ],
+      "byte_identical": false,
+      "v1_release_sha256": "833ef2f7dc443a026fc3fef1a07d9c4031b3e810aa64edfc6167c09cf2274e43"
+    },
+    {
+      "file": "src/student/reference/student.py",
+      "release_sha256": "a522ec689125ad53375e8a4114c1e559a7fde85b4e4d549933e8b6d6a58dac0f",
+      "source": "student/reference/student.py",
+      "source_sha256": "85aadebd3fdd72a2d7d694dd53c74266f5665f2c938f9b694f04da00dfb3d8dc",
+      "extracted_symbols": null,
+      "byte_identical": false,
+      "v1_release_sha256": "85aadebd3fdd72a2d7d694dd53c74266f5665f2c938f9b694f04da00dfb3d8dc"
+    },
+    {
+      "file": "src/student/retizero_backbone.py",
+      "release_sha256": "b2b4da1613639dc9f89d09c913c81ee06c6bf5e8c2c5b5c8538c4f0990b3adfb",
+      "source": "student/retizero_backbone.py",
+      "source_sha256": "b2b4da1613639dc9f89d09c913c81ee06c6bf5e8c2c5b5c8538c4f0990b3adfb",
+      "extracted_symbols": null,
+      "byte_identical": true,
+      "v1_release_sha256": "b2b4da1613639dc9f89d09c913c81ee06c6bf5e8c2c5b5c8538c4f0990b3adfb"
+    },
+    {
+      "file": "src/student/select_checkpoint.py",
+      "release_sha256": "26b70c947d87f60bbb784a6954b20386595bc2ef31899181319fc97248875386",
+      "source": "release_integration_helper",
+      "v1_release_sha256": "26b70c947d87f60bbb784a6954b20386595bc2ef31899181319fc97248875386"
+    },
+    {
+      "file": "src/student/shared.py",
+      "release_sha256": "c69a71eec237898220befbf7df8651f78cde5e9387a3791aea795a64dcd0f146",
+      "source": "student/shared.py",
+      "source_sha256": "e5777afd50704523f78edc2cac41f0dfe16e0c8610bd9171022d5fdc84f665c5",
+      "extracted_symbols": null,
+      "byte_identical": false,
+      "v1_release_sha256": "c69a71eec237898220befbf7df8651f78cde5e9387a3791aea795a64dcd0f146"
+    },
+    {
+      "file": "src/student/staged_reference_train.py",
+      "release_sha256": "3404287be1722183a2ee7fb2f9b97d373181fa5414efae9a99bebcba9f8038c8",
+      "source": "student/staged_reference_train.py",
+      "source_sha256": "932ac3226d0568d9b40022e3af16d31f3c9a90f9c47404f3d96dfc73b9dd56d0",
+      "extracted_symbols": null,
+      "byte_identical": false,
+      "v1_release_sha256": "3404287be1722183a2ee7fb2f9b97d373181fa5414efae9a99bebcba9f8038c8"
+    },
+    {
+      "file": "src/student/student.py",
+      "release_sha256": "c7bead068290ca30766fe56717f70a5af5241b5b22384aac934fd13fde2dc87f",
+      "source": "student/student.py",
+      "source_sha256": "333d9893cb3b321ec4d4d461968baadfaec2372f0c8639341a81abda7f67ca98",
+      "extracted_symbols": null,
+      "byte_identical": false,
+      "v1_release_sha256": "2df9a831170d3dae0cb82d8f180dceec9c02d23fb37cef017fe2f100a98d7adc"
+    },
+    {
+      "file": "src/student/temporal_objective.py",
+      "release_sha256": "04d9479d89b3b53ecbf1036479db7b7bf539f2ab6971ac6bee9b706992896e9b",
+      "source": "student/temporal_objective.py",
+      "source_sha256": "04d9479d89b3b53ecbf1036479db7b7bf539f2ab6971ac6bee9b706992896e9b",
+      "extracted_symbols": null,
+      "byte_identical": true,
+      "v1_release_sha256": "04d9479d89b3b53ecbf1036479db7b7bf539f2ab6971ac6bee9b706992896e9b"
+    },
+    {
+      "file": "src/student/train.py",
+      "release_sha256": "af402e2bbe26d92a6626f3c038e897dda72abbeaef0ef9f49119d518665f8ce5",
+      "source": "student/train.py",
+      "source_sha256": "6cf58bf235a212273d68718ad09e6b162aea1ca94b7a01448e913fd8b95a4811",
+      "extracted_symbols": null,
+      "byte_identical": false,
+      "v1_release_sha256": "af402e2bbe26d92a6626f3c038e897dda72abbeaef0ef9f49119d518665f8ce5"
+    },
+    {
+      "file": "src/student/train_adapter.py",
+      "release_sha256": "db3d449c40be141ccbd0d1cd5ce7c85b07e080e4a6a86571c8221254026c65a5",
+      "source": "release_integration_helper",
+      "v1_release_sha256": "db3d449c40be141ccbd0d1cd5ce7c85b07e080e4a6a86571c8221254026c65a5"
+    },
+    {
+      "file": "src/student/vector_reference.py",
+      "release_sha256": "58661faf1eeff0cfb89f7908b944e150f1a486fb658145615310fcbfdbf0c571",
+      "source": "student/vector_reference.py",
+      "source_sha256": "58661faf1eeff0cfb89f7908b944e150f1a486fb658145615310fcbfdbf0c571",
+      "extracted_symbols": null,
+      "byte_identical": true,
+      "v1_release_sha256": "58661faf1eeff0cfb89f7908b944e150f1a486fb658145615310fcbfdbf0c571"
+    },
+    {
+      "file": "src/student_base/common.py",
+      "release_sha256": "d094a525ebe8303953d2a3f7f5bad51da4cfb2b862e36c437a0e93cdc866e1e9",
+      "source": "parent/common.py",
+      "source_sha256": "d094a525ebe8303953d2a3f7f5bad51da4cfb2b862e36c437a0e93cdc866e1e9",
+      "extracted_symbols": null,
+      "byte_identical": true,
+      "v1_release_sha256": "d094a525ebe8303953d2a3f7f5bad51da4cfb2b862e36c437a0e93cdc866e1e9"
+    },
+    {
+      "file": "src/student_base/data.py",
+      "release_sha256": "a0b9d5189b5e8bcd28e1cf047ceac14f4fa6fa4ee6dda3695146ea87685b8983",
+      "source": "parent/data.py",
+      "source_sha256": "132ac0f99c7a68c00bd9e6eaf899b4cf5a68fababac170829a9959520982d7e0",
+      "extracted_symbols": [
+        "device_batch",
+        "worker_init"
+      ],
+      "byte_identical": false,
+      "v1_release_sha256": "a0b9d5189b5e8bcd28e1cf047ceac14f4fa6fa4ee6dda3695146ea87685b8983"
+    },
+    {
+      "file": "src/student_base/engine.py",
+      "release_sha256": "9efd36580e761c8ba3eb557d8bcea25a234b25a22564ce5f7a940a08fc0b427f",
+      "source": "parent/engine.py",
+      "source_sha256": "65e041d0fe2db05d1deccb5758a599be1913f52f129c6cd2d2ebf5bdce047744",
+      "extracted_symbols": [
+        "bank_for"
+      ],
+      "byte_identical": false,
+      "v1_release_sha256": "9efd36580e761c8ba3eb557d8bcea25a234b25a22564ce5f7a940a08fc0b427f"
+    },
+    {
+      "file": "src/student_base/model.py",
+      "release_sha256": "0a9f26a948f7a0beb014c07ed3c61c1bcee69faf1b21147fa217ec58cc67acef",
+      "source": "parent/model.py",
+      "source_sha256": "dab8a5a0cb5273c793b7d651383b8734e83ba84244ce7c3a9ce7f88a7f51d897",
+      "extracted_symbols": [
+        "CardiacQueryStudent"
+      ],
+      "byte_identical": false,
+      "v1_release_sha256": "6e2eaf7e415b9331c8c866a983de21c96449aaa78bffe528c7d04b980f271ca1"
+    },
+    {
+      "file": "src/student_base/reference/timebridge_model.py",
+      "release_sha256": "6da80c622200cd66a2d829cef43cfa56a6cfabb64db30509f6ac5f1e9636ce3b",
+      "source": "parent/reference/timebridge_model.py",
+      "source_sha256": "2c6da937b791883e3db491277c9c0edfa2438e02c77e3a21b7a93a8c2f9509fe",
+      "extracted_symbols": [
+        "mlp",
+        "scale_gradient",
+        "DemographicPrior",
+        "CardiacDecoder"
+      ],
+      "byte_identical": false,
+      "v1_release_sha256": "6da80c622200cd66a2d829cef43cfa56a6cfabb64db30509f6ac5f1e9636ce3b"
+    },
+    {
+      "file": "src/student_base/reference/timebridge_objectives.py",
+      "release_sha256": "4b1e6990a76cb03a78d6a960b35d8de770bee46872f569f7b4d9d8b27a4b817e",
+      "source": "parent/reference/timebridge_objectives.py",
+      "source_sha256": "7e12fbfe65ecb59f628e1fe5db89decded6295030ffe7e1f31718611f8c31022",
+      "extracted_symbols": [
+        "describe"
+      ],
+      "byte_identical": false,
+      "v1_release_sha256": "4b1e6990a76cb03a78d6a960b35d8de770bee46872f569f7b4d9d8b27a4b817e"
+    },
+    {
+      "file": "src/teacher/data.py",
+      "release_sha256": "44e7f033889ac5669bec08ea0b76735332877ac9d23e464015ea7a38914e5e11",
+      "source": "teacher/data.py",
+      "source_sha256": "44e7f033889ac5669bec08ea0b76735332877ac9d23e464015ea7a38914e5e11",
+      "byte_identical": true,
+      "v1_release_sha256": "44e7f033889ac5669bec08ea0b76735332877ac9d23e464015ea7a38914e5e11"
+    },
+    {
+      "file": "src/teacher/losses.py",
+      "release_sha256": "fd5a6349820cb86635667d9f4d439a5d104259112267a9007627fb0f19bf93b9",
+      "source": "teacher/losses.py",
+      "source_sha256": "fd5a6349820cb86635667d9f4d439a5d104259112267a9007627fb0f19bf93b9",
+      "byte_identical": true,
+      "v1_release_sha256": "fd5a6349820cb86635667d9f4d439a5d104259112267a9007627fb0f19bf93b9"
+    },
+    {
+      "file": "src/teacher/model.py",
+      "release_sha256": "804f6f7218bb9ab60eae50596ec171746db76ecbe221dbe26937ab45ca877c3d",
+      "source": "teacher/model.py",
+      "source_sha256": "d0258cb4d135f191e9d04151327bbc6463e0871c4c2ca7ea0148d171cc6e9b5d",
+      "byte_identical": false,
+      "v1_release_sha256": "d0258cb4d135f191e9d04151327bbc6463e0871c4c2ca7ea0148d171cc6e9b5d"
+    },
+    {
+      "file": "src/teacher/prepare.py",
+      "release_sha256": "dc6f292abda63ea195574325a981f2c508a8fdf7cd1bbc7d9b1e914989266a70",
+      "source": "teacher/prepare.py",
+      "source_sha256": "d29b10dcea13ca6d791cbe07548e0b7318d4abae31f473f1c859af17faa14a8c",
+      "byte_identical": false,
+      "v1_release_sha256": "dc6f292abda63ea195574325a981f2c508a8fdf7cd1bbc7d9b1e914989266a70"
+    },
+    {
+      "file": "src/teacher/report_metrics.py",
+      "release_sha256": "81a986e74b2df2d06f9479c837444cddf2e4b3acc8e6390e8a29940c2b362a43",
+      "source": "teacher/report_metrics.py",
+      "source_sha256": "81a986e74b2df2d06f9479c837444cddf2e4b3acc8e6390e8a29940c2b362a43",
+      "byte_identical": true,
+      "v1_release_sha256": "81a986e74b2df2d06f9479c837444cddf2e4b3acc8e6390e8a29940c2b362a43"
+    },
+    {
+      "file": "src/teacher/smoke.py",
+      "release_sha256": "d4475363b1f8e4bd7357e11897d6f897762df45dc205766ad0ef3c4f828465a2",
+      "source": "teacher/smoke.py",
+      "source_sha256": "d4475363b1f8e4bd7357e11897d6f897762df45dc205766ad0ef3c4f828465a2",
+      "byte_identical": true,
+      "v1_release_sha256": "d4475363b1f8e4bd7357e11897d6f897762df45dc205766ad0ef3c4f828465a2"
+    },
+    {
+      "file": "src/teacher/smoke_ddp.py",
+      "release_sha256": "6929f9ec3efb9a0b0ec78c953c3ac5c61769ba264e85108c407a0fb10bae8b73",
+      "source": "teacher/smoke_ddp.py",
+      "source_sha256": "6929f9ec3efb9a0b0ec78c953c3ac5c61769ba264e85108c407a0fb10bae8b73",
+      "byte_identical": true,
+      "v1_release_sha256": "6929f9ec3efb9a0b0ec78c953c3ac5c61769ba264e85108c407a0fb10bae8b73"
+    },
+    {
+      "file": "src/teacher/train.py",
+      "release_sha256": "be142435c32583b010c123ca41ca5e5eeacfdb99aed9922382efd3a575c24cba",
+      "source": "teacher/train.py",
+      "source_sha256": "be142435c32583b010c123ca41ca5e5eeacfdb99aed9922382efd3a575c24cba",
+      "byte_identical": true,
+      "v1_release_sha256": "be142435c32583b010c123ca41ca5e5eeacfdb99aed9922382efd3a575c24cba"
+    }
+  ],
+  "config_sha256": {
+    "downstream.json": "5b1f680a236b095f4ca403fbbd4824a96ec3213bb63279b4b1d84dac4008461d",
+    "paths.example.json": "60780a7dd3ae361b52a22977c1f6b35c31f6081a5b5ab0977e7248a7419a4df1",
+    "phenotypes.json": "0b9440751e9ad96e78590661e568e5448cd50c845cf8612b8a94a5589a93c2da",
+    "student.json": "a0125393dc04df0195cafecc351b318b283a7c57a3797c1771746c46cb870290",
+    "student_model.json": "ccfb988698d81774639b34ccd2e598acfc56177bccc57774f8b755110dcff748",
+    "teacher.yaml": "d27c4e238d59ce402c94e8d9d9c095cd8844de273603862494873661dd551f7c"
+  },
+  "result_artifact_sha256": [
+    {
+      "name": "Eye2Cardiac_35Epoch_11Methods_ByCohort_95CI_completed.xlsx",
+      "sha256": "15f2a8940b069842eeec3644fde89c1de3ba228541d824d592d46aaaf34f02f0"
+    },
+    {
+      "name": "Eye2Cardiac_35Epoch_11Methods_ByCohort_95CI_completed.xlsx",
+      "sha256": "514d806faed5a8006c94bd35e3ed2d4b890155c6e6de769da7d6d7faa020e11d"
+    },
+    {
+      "name": "Eye2Cardiac_35Epoch_11Methods_AllMetrics_95CI_completed.csv",
+      "sha256": "59d9d5f7a0d90b59adefd598e6b729048da847c81837cd675d3a42dcf9c4cd95"
+    },
+    {
+      "name": "current_ukb.csv",
+      "sha256": "9482502a3cb851cb001ce0f9b1e8daa2c6ab02b209713d0f55f0ddb8c1d5cc7b"
+    },
+    {
+      "name": "current_external.csv",
+      "sha256": "90b50854d26dcf5e0e17451eb4e2f3839aacd955d01a40525a28ba2ccb0608db"
+    },
+    {
+      "name": "direct_ukb.csv",
+      "sha256": "bbef70b88f7ab1714c2328a6d7294fbbf7589d29692c0dddd3572964bd27394e"
+    },
+    {
+      "name": "direct_external.csv",
+      "sha256": "914d49ab614a67e7d1d160bafd471f1d9c2c9d70775112ea6c947ab97dcd35f1"
+    },
+    {
+      "name": "supplemental_metrics_95CI.csv",
+      "sha256": "aa703b4d54aa6a0a378a21e73e4bd55f872169cd9990d112c9c1d8bf86c8db99"
+    },
+    {
+      "name": "external_clinical_metrics_95CI.csv",
+      "sha256": "f69622546ecec0bfc5d1ddf71ecbf173d83a5dec98bbb52d35e0533498ce23cd"
+    }
+  ],
+  "permitted_packaging_changes": [
+    "Remove private absolute paths and unrelated historical orchestration.",
+    "Extract active dependency definitions without replacing numerical model functions.",
+    "Keep runtime input locations when restoring a relocated checkpoint.",
+    "Report Mesh11 by the locked names, excluding ED/ES sphericity only.",
+    "Add private configuration, input validation, source fingerprints, seed locks and synthetic checks.",
+    "V2 canonical naming: CardiacAE and RetiCardiac; historical result identifiers preserved."
+  ],
+  "no_training_during_packaging": true,
+  "no_weights_or_data_distributed": true,
+  "verification": "docs/verification.md",
+  "teacher_model_name": "CardiacAE",
+  "student_model_name": "RetiCardiac",
+  "previous_archive_sha256": "302f178bf8c391e41b19557016b53538d42299dc00b5e9f0f99a7f51919983c2",
+  "naming_revision": "Canonical public classes, teacher registry, factories and descriptive configuration metadata; legacy aliases retained."
+}

@@ -1,0 +1,72 @@
+status: IMPLEMENTATION_PREFLIGHT
+architecture_id: CardiacAE
+seed: 2026
+data:
+  version: MeshData-QC
+  root: ${TEACHER_DATA}
+  manifest: ${TEACHER_MANIFEST}
+  topology: ${TEACHER_TOPOLOGY}
+  frames: 50
+  source_manifest_sha256: fb9352d4b3ad95a7bb00358daba35fc2092f0e816959216ebc541ad7a9702e78
+model:
+  harmonics: 6
+  encoder_channels: [32, 64, 128, 256]
+  core_decoder_channels: [256, 128, 64, 32]
+  detail_decoder_channels: [128, 64, 32, 16]
+  activation_checkpoint: true
+  detail_dropout_probability: 0.25
+  core_width: 64
+  detail_width: 32
+  total_width: 96
+  spatial_operator: fixed_training_template_ordered_knn_spiral9
+  hierarchy: [6141, 1536, 384, 96, 24]
+  hierarchy_sampling: deterministic_farthest_point
+  interpolation: four_nearest_inverse_distance
+  shape_shared_input_only: both_surface_tokens
+  private_groups_receive_other_surface_directly: false
+loss:
+  geom_weights:
+    vertex: 1.0
+    edge: 0.1
+    normal: 0.1
+    lap_relative: 0.1
+    excess_roughness: 0.02
+    velocity: 0.2
+    acceleration: 0.05
+    lv_volume: 0.2
+    lvef: 0.1
+    ed_max: 0.05
+    lv_myo_pair: 0.1
+    face_area_floor: 0.01
+  core_weight: 0.5
+  residual_weight: 0.001
+  jitter_weight: 0.01
+  clinical_thickness: false
+  myocardial_tissue_volume: false
+  differentiable_collision: false
+training:
+  seed: 2026
+  gpu_count: 2
+  evaluation_batch_per_gpu: 8
+  target_training_device_memory_fraction_minimum: 0.75
+  memory_policy: measured_real_batch_and_allocator_cache_no_dummy_allocations
+  workers_per_gpu: 8
+  amp_dtype: bfloat16
+  weight_decay: 0.00001
+  gradient_clip_norm: 1.0
+  warmup_epochs: 3
+  min_lr: 0.000001
+  stages:
+    - {stage: A, epochs: 20, lr: 0.0001, microbatch_per_gpu: 384, gradient_accumulation: 1, effective_batch_size: 768}
+    - {stage: B, epochs: 20, lr: 0.0001, microbatch_per_gpu: 32, gradient_accumulation: 1, effective_batch_size: 64}
+    - {stage: C, epochs: 60, lr: 0.00002, microbatch_per_gpu: 32, gradient_accumulation: 1, effective_batch_size: 64}
+selection:
+  use_test: false
+  select_only_stage_C: true
+  criterion: core_balanced_RMSE_mm_plus_0.5_full_balanced_RMSE_mm_plus_0.1_core_balanced_P95_mm
+  paired_transfer_probe: separate_followup_pending
+evaluation:
+  test_n: 4204
+  geometry_core_and_full: true
+  derived_phenotypes: [LVEDV, LVESV, LVEF]
+  full_intersection_QA: separate_followup_pending

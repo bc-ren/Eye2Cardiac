@@ -1,0 +1,15 @@
+{
+  "STUDENT_PREPARED": "private/student_prepared",
+  "ANATOMY_CACHE": "private/anatomy_cache",
+  "PRIOR_SOURCE": "private/prior_source",
+  "PRIOR_PREPARED": "private/prior_prepared",
+  "RETIZERO_SOURCE": "third_party/RetiZero",
+  "RETIZERO_CHECKPOINT": "private/RetiZero.pth",
+  "TEACHER_CHECKPOINT": "private/epoch_084_C.pt",
+  "TEACHER_TOPOLOGY": "private/lv_myo_topology.npz",
+  "FULL_TOPOLOGY": "private/full_topology.npz",
+  "BASAL_RING_IDS": "private/fixed_basal_ring_vertex_ids.npy",
+  "TEACHER_DATA": "private/teacher_prepared",
+  "DOWNSTREAM_PREPARED": "private/downstream_prepared",
+  "CLINICAL_CSV": "private/clinical.csv"
+}

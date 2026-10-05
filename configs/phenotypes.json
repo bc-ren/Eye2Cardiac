@@ -1,0 +1,35 @@
+{
+  "coordinate_system": "RAS_mm_canonical",
+  "mesh_role": "teacher_reference_target_ground_truth",
+  "phenotype": {
+    "myocardial_density_g_per_ml": 1.05,
+    "template_mitral_contact_threshold_mm": 1.5,
+    "basal_exclusion_fraction": 0.05,
+    "apical_exclusion_fraction": 0.02,
+    "wall_thickness_min_mm": 0.5,
+    "wall_thickness_max_mm": 30.0,
+    "wall_valid_area_fraction_min": 0.7,
+    "long_axis_min_mm": 40.0,
+    "long_axis_max_mm": 130.0,
+    "short_axis_min_mm": 20.0,
+    "short_axis_max_mm": 120.0,
+    "sphericity_min": 0.2,
+    "sphericity_max": 1.5,
+    "ed_es_axis_angle_max_deg": 25.0,
+    "global_wall_thickening_min_pct": -50.0,
+    "global_wall_thickening_max_pct": 300.0,
+    "wall_thickness_validation_sample_n": 1024,
+    "wall_thickness_validation_salt": "TeacherE084-LVMyo-fixed-template-basal-ring-v1",
+    "wall_thickness_acceptance": {
+      "coverage_min": 0.9,
+      "paired_n_min": 800,
+      "absolute_bias_max_mm": 1.5,
+      "mae_max_mm": 1.75,
+      "pearson_min": 0.5,
+      "spearman_min": 0.5
+    }
+  },
+  "teacher_topology": "${TEACHER_TOPOLOGY}",
+  "full_topology": "${FULL_TOPOLOGY}",
+  "basal_ring_ids": "${BASAL_RING_IDS}"
+}

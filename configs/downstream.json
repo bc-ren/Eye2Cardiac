@@ -1,0 +1,60 @@
+{
+  "feature_model_name": "RetiCardiac",
+  "seeds": [
+    20260919
+  ],
+  "variants": [
+    "corrected_noaug"
+  ],
+  "tasks": [
+    "Diagnosis",
+    "Incident"
+  ],
+  "branch_width": 24,
+  "branch_hidden": 64,
+  "dropout": 0.1,
+  "learning_rate": 0.001,
+  "weight_decay": 0.001,
+  "lr_decay_per_epoch": 0.95,
+  "max_epochs": 100,
+  "patience": 15,
+  "folds": 5,
+  "hyperparameter_search": false,
+  "horizons": [
+    3,
+    5,
+    10
+  ],
+  "bootstrap_replicates": 2000,
+  "bootstrap_seed": 20260922,
+  "feature_batch": 16,
+  "decode_batch": 8,
+  "geometry_workers": 16,
+  "geometry_blas_threads": 1,
+  "pending_feature_batches": 8,
+  "head_jobs_per_gpu": 3,
+  "evaluation_workers": 4,
+  "fields13": [
+    "lv_edv_ml",
+    "lv_esv_ml",
+    "lv_sv_ml",
+    "lv_ef_pct",
+    "lv_mass_g",
+    "lv_mean_wall_thickness_ed_mm",
+    "lv_wall_thickness_p95_ed_mm",
+    "lv_sphericity_index_ed_ratio",
+    "lv_sphericity_index_es_ratio",
+    "lv_global_wall_thickening_pct",
+    "lv_base_apex_length_ed_mm",
+    "lv_base_apex_length_es_mm",
+    "lv_longitudinal_shortening_pct"
+  ],
+  "exclude": [
+    "lv_sphericity_index_ed_ratio",
+    "lv_sphericity_index_es_ratio"
+  ],
+  "root": "${RUN}/student/downstream",
+  "student": "${RUN}/student",
+  "raw_csv": "${CLINICAL_CSV}",
+  "metric_source": "${RUN}/student/downstream/metrics.py"
+}
